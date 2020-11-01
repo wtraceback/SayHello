@@ -1,60 +1,23 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
+{% extends "base.html" %}
+{% from 'bootstrap/form.html' import render_form %}
 
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                        <li>
-                            {{ message }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
+{% block page_content %}
+    {{ render_form(form) }}
 
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
+    {% for message in messages %}
+        <div>
             <p>
-                {{ form.name.label }}<br>
-                {{ form.name(size=20) }}<br>
-                {% for error in form.name.errors %}
-                    <span style="color: red">[{{ error }}]</span>
-                {% endfor %}
+                <h5>
+                    {{message.name}}
+                </h5>
             </p>
             <p>
-                {{ form.message.label }}<br>
-                {{ form.message(size=200) }}<br>
-                {% for error in form.message.errors %}
-                    <span style="color: red">[{{ error }}]</span>
-                {% endfor %}
+                {{ message.body }}
             </p>
             <p>
-                {{ form.submit() }}
+                {{ message.timestamp }}
             </p>
-        </form>
-
-        {% for message in messages %}
-            <div>
-                <p>
-                    <h5>
-                        {{message.name}}
-                    </h5>
-                </p>
-                <p>
-                    {{ message.body }}
-                </p>
-                <p>
-                    {{ message.timestamp }}
-                </p>
-                <hr>
-            </div>
-        {% endfor %}
-    </body>
-</html>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

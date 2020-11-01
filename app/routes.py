@@ -5,7 +5,6 @@ from app.models import Message
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    title = 'Hello World'
     form = HelloWorldForm()
     if form.validate_on_submit():
         name = form.name.data
@@ -17,4 +16,4 @@ def index():
         return redirect(url_for('index'))
 
     messages = Message.query.order_by(Message.timestamp.desc()).all()
-    return render_template('index.html', title=title, form=form, messages=messages)
+    return render_template('index.html', form=form, messages=messages)
