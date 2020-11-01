@@ -39,5 +39,22 @@
                 {{ form.submit() }}
             </p>
         </form>
+
+        {% for message in messages %}
+            <div>
+                <p>
+                    <h5>
+                        {{message.name}}
+                    </h5>
+                </p>
+                <p>
+                    {{ message.body }}
+                </p>
+                <p>
+                    {{ message.timestamp }}
+                </p>
+                <hr>
+            </div>
+        {% endfor %}
     </body>
 </html>

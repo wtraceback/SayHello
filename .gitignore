@@ -130,3 +130,5 @@ dmypy.json
 
 # Automatically generated files
 .idea/
+
+*.db
