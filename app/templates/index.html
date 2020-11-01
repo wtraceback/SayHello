@@ -6,15 +6,34 @@
     </head>
     <body>
         <h1>Hello World</h1>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
         <form action="" method="post">
             {{ form.hidden_tag() }}
             <p>
-                {{ form.name.label }}
-                {{ form.name(size=20) }}
+                {{ form.name.label }}<br>
+                {{ form.name(size=20) }}<br>
+                {% for error in form.name.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
             </p>
             <p>
-                {{ form.message.label }}
-                {{ form.message(size=200) }}
+                {{ form.message.label }}<br>
+                {{ form.message(size=200) }}<br>
+                {% for error in form.message.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
             </p>
             <p>
                 {{ form.submit() }}
