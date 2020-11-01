@@ -6,5 +6,19 @@
     </head>
     <body>
         <h1>Hello World</h1>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.name.label }}
+                {{ form.name(size=20) }}
+            </p>
+            <p>
+                {{ form.message.label }}
+                {{ form.message(size=200) }}
+            </p>
+            <p>
+                {{ form.submit() }}
+            </p>
+        </form>
     </body>
 </html>
