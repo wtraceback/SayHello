@@ -4,20 +4,21 @@
 {% block page_content %}
     {{ render_form(form) }}
 
-    {% for message in messages %}
-        <div>
-            <p>
-                <h5>
-                    {{message.name}}
-                </h5>
-            </p>
-            <p>
-                {{ message.body }}
-            </p>
-            <p>
-                {{ message.timestamp }}
-            </p>
-            <hr>
-        </div>
-    {% endfor %}
+    <div class="list-group">
+        {% for message in messages %}
+            <a class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        {{ message.name }}
+                        <small class="text-muted">#{{ loop.revindex }}</small>
+                    </h5>
+                    <small class="text-muted">
+                        {{ moment(message.timestamp).fromNow(refresh=True) }}
+                    </small>
+                </div>
+
+                <p class="mb-1">{{ message.body }}</p>
+            </a>
+        {% endfor %}
+    </div>
 {% endblock %}
