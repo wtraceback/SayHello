@@ -2,17 +2,23 @@
 {% from 'bootstrap/form.html' import render_form %}
 
 {% block page_content %}
-    {{ render_form(form) }}
+    <div class="say-form">
+        {{ render_form(form) }}
+    </div>
+
+    <h5>
+        {{ messages|length }} messages
+    </h5>
 
     <div class="list-group">
         {% for message in messages %}
             <a class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">
+                    <h5 class="mb-1 color-uniform">
                         {{ message.name }}
                         <small class="text-muted">#{{ loop.revindex }}</small>
                     </h5>
-                    <small class="text-muted">
+                    <small data-toggle="tooltip" data-placement="top" data-delay="500" data-timestamp="{{ message.timestamp }}">
                         {{ moment(message.timestamp).fromNow(refresh=True) }}
                     </small>
                 </div>

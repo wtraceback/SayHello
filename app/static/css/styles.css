@@ -1,0 +1,23 @@
+body {
+    background-color: #F5F5F5;
+}
+
+.sub-title {
+    font-size: 40%;
+}
+
+.color-uniform {
+    color: #5E4586;
+}
+
+.container {
+    max-width: 640px;
+}
+
+.page-header {
+    margin: 50px 0 40px 0;
+}
+
+.say-form {
+    margin-bottom: 30px;
+}

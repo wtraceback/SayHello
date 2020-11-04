@@ -1,20 +1,27 @@
 {% extends "origin.html" %}
 
 {% block title %}
-    Say Hello World!
+    Say Hello!
 {% endblock %}
 
 {% block styles %}
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="container">
-        <div class="page-header">
-            <h1>Say Hello
-                <small>to the World!</small>
+        <header>
+            <h1 class="text-center display-4 page-header">
+                <strong class="color-uniform">
+                    Say Hello
+                </strong>
+                <small class="text-muted sub-title">
+                    to the world
+                </small>
             </h1>
-        </div>
+        </header>
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -37,6 +44,8 @@
 
 {% block scripts %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     {{ moment.include_moment(local_js=url_for('static', filename='js/moment-with-locales.min.js')) }}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 {% endblock %}
