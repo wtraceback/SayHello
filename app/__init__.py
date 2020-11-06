@@ -12,4 +12,4 @@ migrate = Migrate(app, db)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-from app import routes, models, fakes
+from app import routes, models, fakes, errors
