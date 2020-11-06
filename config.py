@@ -16,3 +16,4 @@ class Config():
     SECRET_KEY = os.getenv('SECRET_KEY', 'you-will-never-guess')
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL', app_db)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MESSAGES_PER_PAGE = 10

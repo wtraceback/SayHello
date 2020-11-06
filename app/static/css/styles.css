@@ -1,5 +1,5 @@
-body {
-    background-color: #F5F5F5;
+.container {
+    max-width: 640px;
 }
 
 .sub-title {
@@ -8,20 +8,4 @@ body {
 
 .color-uniform {
     color: #5E4586;
-}
-
-.container {
-    max-width: 640px;
-}
-
-.page-header {
-    margin: 50px 0 40px 0;
-}
-
-.say-form {
-    margin-bottom: 30px;
-}
-
-footer {
-    margin-top: 30px;
 }

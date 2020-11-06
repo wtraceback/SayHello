@@ -1,7 +1,7 @@
 {% extends "origin.html" %}
 
 {% block title %}
-    Say Hello!
+    Say Hello
 {% endblock %}
 
 {% block styles %}
@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 {% endblock %}
 
+{% block body_attribs %}
+    class="bg-light"
+{% endblock body_attribs %}
+
 {% block content %}
     <div class="container">
-        <header>
-            <h1 class="text-center display-4 page-header">
+        <header class="text-center my-5">
+            <h1 class="display-4">
                 <strong class="color-uniform">
                     Say Hello
                 </strong>
@@ -40,8 +44,14 @@
         {% block page_content %}
         {% endblock %}
 
-        {% block footer %}
-        {% endblock %}
+        <footer class="text-center my-4">
+            {% block footer %}
+                <small>
+                     Copyright &copy; 2020 whxcer |
+                    <a href="https://github.com/wtraceback/SayHelloWorld" target="_blank" title="Fork me on GitHub">GitHub</a>
+                </small>
+            {% endblock %}
+        </footer>
     </div>
 {% endblock %}
 
