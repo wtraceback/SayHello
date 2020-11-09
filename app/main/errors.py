@@ -1,18 +1,19 @@
 from flask import render_template
-from app import app, db
+from .. import db
+from . import main
 
 
-@app.errorhandler(400)
-def bad_request(error):
+@main.app_errorhandler(400)
+def bad_request(e):
     return render_template('errors/400.html'), 400
 
 
-@app.errorhandler(404)
-def page_not_found(error):
+@main.app_errorhandler(404)
+def page_not_found(e):
     return render_template('errors/404.html'), 404
 
 
-@app.errorhandler(500)
-def internal_server_error(error):
+@main.app_errorhandler(500)
+def internal_server_error(e):
     db.session.rollback()
     return render_template('errors/500.html'), 500
