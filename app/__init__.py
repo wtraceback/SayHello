@@ -28,9 +28,18 @@ def create_app(config_name=None):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    register_shell_context(app)
     register_commands(app)
 
     return app
+
+
+def register_shell_context(app):
+    from app.models import Message
+
+    @app.shell_context_processor
+    def make_shell_context():
+        return dict(db=db, Message=Message)
 
 
 def register_commands(app):
